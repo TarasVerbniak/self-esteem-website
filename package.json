@@ -1,0 +1,15 @@
+{
+  "name": "sew",
+  "version": "1.0.0",
+  "description": "Website that will change the world",
+  "main": "index.js",
+  "scripts": {
+    "start": "index.js"
+  },
+  "author": "Taras Verbniak",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  }
+}
