@@ -6,24 +6,24 @@ $( document ).ready(function(){
     });
 
     /* TOGGLE ACTIVE NAVBAR CLASS */
-    const currentUrl = window.location.pathname;
     let currentNavLi;
-    switch (currentUrl) {
+    switch (window.location.pathname) {
         case '/self':
-            currentNavLi = $('#self');
+            currentNavLi = '#self';
             break;
         case '/love':
-            currentNavLi = $('#love');
+            currentNavLi = '#love';
             break;
         case '/career':
-            currentNavLi = $('#career');
+            currentNavLi = '#career';
             break;
         case '/family':
-            currentNavLi = $('#family')
+            currentNavLi = '#family';
             break;    
         default:
-            currentNavLi = $('#home');
+            currentNavLi = '#home';
             break;
     }
-    currentNavLi.addClass('active');
+    $(currentNavLi).addClass('active');
+    $(`${currentNavLi}-mobile`).addClass('active');
 });
