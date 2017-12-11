@@ -1,6 +1,83 @@
+/* GENERAL */
 body{
+    margin: 0;
+    padding: 0;
     background: #c5c5c5;
+    color: black;
 }
+
+/* NAVBAR */
 .nav-wrapper{
     background: black;
+}
+.hide-on-med-and-down{
+    text-align: center !important;
+}
+.hide-on-med-and-down li{
+    padding: 0 10px;
+    border-left: .1px solid #696969;
+    display: inline;
+    float: none;
+}
+.hide-on-med-and-down li a{
+    display: inline-block;
+}
+#first-nav-link{
+    margin-left: 20px;
+    border-left: none;
+}
+.active a{
+    font-weight: bold;
+    color: green;
+}
+
+.article{
+    margin: 10px 0;
+    display: flex;
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.4);
+}
+.article-image-wrapper{
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+.article-image{
+    background: url("https://static.pexels.com/photos/257360/pexels-photo-257360.jpeg") center no-repeat;
+    height: 100%;
+    width: 100%;
+    transition: all .15s ease-in-out;
+}
+.article-image:hover{
+    transform: scale(1.03)
+}
+
+.article-content{
+    background: white;
+    flex: 3;
+    padding: 0 20px;
+}
+.article-footer{
+    padding: 10px 0;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+.article-footer-item{
+    display: inline-block;
+}
+.article-field{
+    padding: 3px;
+    text-align: center;
+    border-radius: 2px;
+    width: 130px;
+    color: black;
+}
+
+
+@media screen and (max-width: 992px) {
+    .article{
+        display: flex;
+        flex-direction: column;
+    }
+    .article-image-wrapper{
+        height: 150px;
+    }    
 }
