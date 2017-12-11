@@ -22,7 +22,7 @@ body{
 .hide-on-med-and-down li a{
     display: inline-block;
 }
-#first-nav-link{
+#home{
     margin-left: 20px;
     border-left: none;
 }
