@@ -1,26 +1,4 @@
-<%- include ./partials/header -%>
-<nav>
-    <div class="nav-wrapper">
-        <a href="/" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
-        <div class="container">
-            <a href="/" class="brand-logo">SEW</a>
-            <ul class="hide-on-med-and-down">
-                <li id="home"><a href="/">POPULAR</a></li>
-                <li><a href="/self">SELF</a></li>
-                <li><a href="/love">LOVE</a></li>
-                <li><a href="/career">CAREER</a></li>
-                <li class="active"><a href="/family">FAMILY</a></li>
-            </ul>
-        </div>
-        <ul class="side-nav" id="mobile-nav">
-            <li><a href="/">POPULAR</a></li>
-            <li><a href="/self">SELF</a></li>
-            <li><a href="/love">LOVE</a></li>
-            <li><a href="/career">CAREER</a></li>
-            <li class="active"><a href="/family">FAMILY</a></li>
-        </ul>
-    </div>
-</nav>
+<%- include('./partials/header', {link: data.name})-%>
 <main class="container">
   <div class="row">
     <div class="col m9 s12">

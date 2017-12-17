@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 const popular = {
-    // name: 'SElf',
+    name: 'POPULAR',
     articles: [{
         id: '1',
         tag: 'SELF',
@@ -43,7 +43,7 @@ const popular = {
 };
 
 const self = {
-    // name: 'SElf',
+    name: 'SELF',
     articles: [{
         id: '1',
         tag: 'SELF',
@@ -66,7 +66,7 @@ const self = {
 };
 
 const love = {
-    // name: 'SElf',
+    name: 'LOVE',
     articles: [{
         id: '1',
         tag: 'LOVE',
@@ -88,7 +88,7 @@ const love = {
     }]
 };
 const career = {
-    // name: 'SElf',
+    name: 'CAREER',
     articles: [{
         id: '1',
         tag: 'CAREER',
@@ -110,7 +110,7 @@ const career = {
     }]
 };
 const family = {
-    // name: 'SElf',
+    name: 'FAMILY',
     articles: [{
         id: '1',
         tag: 'FAMILY',
@@ -140,7 +140,7 @@ app.use('/public', express.static('public'));
 /* REQUEST HANDLERS */
 app.get('/', (req, res) => {
     const sortedPopular = popular.articles.sort((f,s) => f.likes < s.likes);
-    res.render('popular', {data: {articles: sortedPopular}});
+    res.render('popular', {data: popular});
 });
 app.get('/self', (req, res) => {
     res.render('self', {data: self});
