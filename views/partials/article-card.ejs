@@ -5,9 +5,9 @@
     <div class="article-list-content">
         <div class="article-list-text">
             <h1><%= article.name%></h1>
-            <%article.paragraphs.map(p => {%>
+            <%_ article.paragraphs.map(p => { _%>
                 <p><%=p%></p>
-            <%})%>
+            <%_ }) _%>
         </div>
         <div class="article-list-footer">
             <a href="/<%=article.tagClass%>">

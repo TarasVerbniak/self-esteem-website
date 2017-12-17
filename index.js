@@ -134,6 +134,7 @@ const family = {
 
 /* MIDDLEWARES */
 app.set('view engine', 'ejs');
+app.locals.rmWhitespace = true;
 app.use('/public', express.static('public'));
 
 

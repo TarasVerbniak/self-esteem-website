@@ -16,59 +16,59 @@
             <div class="container">
                 <a href="/" class="brand-logo">SEW</a>
                 <ul class="hide-on-med-and-down">
-                    <% if (link === 'POPULAR') { %>
-                        <li id="home" class="nav-popular"><a href="/">POPULAR</a></li>
-                    <% } else { %>
-                        <li id="home"><a href="/">POPULAR</a></li>
-                    <% } %>
-                    <% if (link === 'SELF') { %>
-                        <li class="nav-self"><a href="/self">SELF</a></li>
-                    <% } else { %>
-                        <li><a href="/self">SELF</a></li>
-                    <% } %>
-                    <% if (link === 'LOVE') { %>
-                        <li class="nav-love"><a href="/love">LOVE</a></li>
-                    <% } else { %>
-                        <li><a href="/love">LOVE</a></li>
-                    <% } %>
-                    <% if (link === 'CAREER') { %>
-                        <li class="nav-career"><a href="/career">CAREER</a></li>
-                    <% } else { %>
-                        <li><a href="/career">CAREER</a></li>
-                    <% } %>
-                    <% if (link === 'FAMILY') { %>
-                        <li class="nav-family"><a href="/family">FAMILY</a></li>
-                    <% } else { %>
-                        <li><a href="/family">FAMILY</a></li>
-                    <% } %>                    
+                <%_ if (link === 'POPULAR') { _%>
+                    <li id="home" class="nav-popular"><a href="/">POPULAR</a></li>
+                <%_ } else { _%>
+                    <li id="home"><a href="/">POPULAR</a></li>
+                <%_ } _%>
+                <%_ if (link === 'SELF') { _%>
+                    <li class="nav-self"><a href="/self">SELF</a></li>
+                <%_ } else { _%>
+                    <li><a href="/self">SELF</a></li>
+                <%_ } _%>
+                <%_ if (link === 'LOVE') { _%>
+                    <li class="nav-love"><a href="/love">LOVE</a></li>
+                <%_ } else { _%>
+                    <li><a href="/love">LOVE</a></li>
+                <%_ } _%>
+                <%_ if (link === 'CAREER') { _%>
+                    <li class="nav-career"><a href="/career">CAREER</a></li>
+                <%_ } else { _%>
+                    <li><a href="/career">CAREER</a></li>
+                <%_ } _%>
+                <%_ if (link === 'FAMILY') { _%>
+                    <li class="nav-family"><a href="/family">FAMILY</a></li>
+                <%_ } else { _%>
+                    <li><a href="/family">FAMILY</a></li>
+                <%_ } _%>
                 </ul>
             </div>
             <ul class="side-nav" id="mobile-nav">
-                <% if (link === 'POPULAR') { %>
-                    <li class="active"><a href="/">POPULAR</a></li>
-                <% } else { %>
-                    <li><a href="/">POPULAR</a></li>
-                <% } %>
-                <% if (link === 'SELF') { %>
-                    <li class="active"><a href="/self">SELF</a></li>
-                <% } else { %>
-                    <li><a href="/self">SELF</a></li>
-                <% } %>                
-                <% if (link === 'LOVE') { %>
-                    <li class="active"><a href="/love">LOVE</a></li>
-                <% } else { %>
-                    <li><a href="/love">LOVE</a></li>
-                <% } %>
-                <% if (link === 'CAREER') { %>
-                    <li class="active"><a href="/career">CAREER</a></li>
-                <% } else { %>
-                    <li><a href="/career">CAREER</a></li>
-                <% } %>
-                <% if (link === 'FAMILY') { %>
-                    <li class="active"><a href="/family">FAMILY</a></li>
-                <% } else { %>
-                    <li><a href="/family">FAMILY</a></li>
-                <% } %>
+            <%_ if (link === 'POPULAR') { _%>
+                <li class="nav-popular"><a href="/">POPULAR</a></li>
+            <%_ } else { _%>
+                <li><a href="/">POPULAR</a></li>
+            <%_ } %>
+            <%_if (link === 'SELF') { _%>
+                <li class="nav-self"><a href="/self">SELF</a></li>
+            <%_ } else { _%>
+                <li><a href="/self">SELF</a></li>
+            <%_ } _%>                
+            <%_ if (link === 'LOVE') { _%>
+                <li class="nav-love"><a href="/love">LOVE</a></li>
+            <%_ } else { _%>
+                <li><a href="/love">LOVE</a></li>
+            <%_ } _%>
+            <%_ if (link === 'CAREER') { _%>
+                <li class="nav-career"><a href="/career">CAREER</a></li>
+            <%_ } else { _%>
+                <li><a href="/career">CAREER</a></li>
+            <%_ } _%>
+            <%_ if (link === 'FAMILY') { _%>
+                <li class="nav-family"><a href="/family">FAMILY</a></li>
+            <%_ } else { _%>
+                <li><a href="/family">FAMILY</a></li>
+            <%_ } _%>
             </ul>
         </div>
     </nav>
