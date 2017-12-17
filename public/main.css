@@ -11,7 +11,9 @@ body{
 main{
     flex: 1 0 auto;
 }
-
+.main-row{
+    margin-bottom: 0 !important;
+}
 /* NAVBAR */
 .nav-wrapper{
     background: black;
@@ -80,7 +82,7 @@ main{
 
 /* ARTICLE LIST*/
 .article-list{
-    margin: 10px 0;
+    margin: 20px 0;
     display: flex;
     box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.4);
 }
@@ -178,6 +180,11 @@ main{
 }
 .family:hover{
     background: rgba(255,152,0, 0.4);
+}
+
+/* AD */
+.card-ad{
+    margin: 20px 0;
 }
 
 /* MEDIA QUERIES */
