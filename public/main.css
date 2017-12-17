@@ -25,19 +25,36 @@ main{
     display: inline;
     float: none;
 }
-.hide-on-med-and-down li a:hover{
-    color: #939393;
-}
 .hide-on-med-and-down li a{
+    color: #939393;
     display: inline-block;
+}
+.hide-on-med-and-down li a:hover{
+    color: white;
 }
 #home{
     margin-left: 20px;
     border-left: none;
 }
-.active a{
+.nav-popular a{
     font-weight: bold;
-    color: green !important;
+    color: #4db6ac !important;
+}
+.nav-self a{
+    font-weight: bold;
+    color: rgba(0,255,0, .8) !important;
+}
+.nav-love a{
+    font-weight: bold;
+    color: rgba(255,0,0, 0.9) !important;
+}
+.nav-career a{
+    font-weight: bold;
+    color: rgba(33,150,243, 1) !important;
+}
+.nav-family a{
+    font-weight: bold;
+    color:  rgba(255,152,0, 0.8) !important;
 }
 .active a:hover{
     color: green !important;

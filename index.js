@@ -18,7 +18,7 @@ const popular = {
         tagClass: 'love',
         name: 'The second article from the "self" series',    
         paragraphs: ['Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ratione sed soluta cum rerum sapiente accusantium, optio iusto dolores ipsum.'],
-        image: 'sample2.jpeg',
+        image: 'sample2.jpg',
         date: 'November 17, 2017',
         likes: 11
     },{
@@ -27,7 +27,7 @@ const popular = {
         tagClass: 'career',
         name: 'The third article from the "self" series',    
         paragraphs: ['Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ratione sed soluta cum rerum sapiente accusantium, optio iusto dolores ipsum.'],
-        image: 'sample2.jpeg',
+        image: 'sample2.jpg',
         date: 'May 23, 2017',
         likes: 345
     },{
@@ -140,22 +140,23 @@ app.use('/public', express.static('public'));
 /* REQUEST HANDLERS */
 app.get('/', (req, res) => {
     const sortedPopular = popular.articles.sort((f,s) => f.likes < s.likes);
-    res.render('popular', {data: popular});
+    res.render('articles-list', {data: popular});
 });
 app.get('/self', (req, res) => {
-    res.render('self', {data: self});
+    res.render('articles-list', {data: self});
 });
 app.get('/love', (req, res) => {
-    res.render('love', {data: love});
+    res.render('articles-list', {data: love});
 });
 app.get('/career', (req, res) => {
-    res.render('career', {data: career});
+    res.render('articles-list', {data: career});
 });
 app.get('/family', (req, res) => {
-    res.render('family', {data: family});
+    res.render('articles-list', {data: family});
 });
 app.get('*', (req, res) => {
-    res.send('Sorry, webpage is not found...');
+    const url = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
+    res.render('not-found', {data: url});
 });
 app.all('*', (req, res) => {
     res.send('Sorry, you can\'t do this...');
