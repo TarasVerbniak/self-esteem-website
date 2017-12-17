@@ -18,7 +18,7 @@ const popular = {
         tagClass: 'love',
         name: 'The second article from the "self" series',    
         paragraphs: ['Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ratione sed soluta cum rerum sapiente accusantium, optio iusto dolores ipsum.'],
-        image: 'sample1.jpg',
+        image: 'sample2.jpeg',
         date: 'November 17, 2017',
         likes: 11
     },{
@@ -27,7 +27,7 @@ const popular = {
         tagClass: 'career',
         name: 'The third article from the "self" series',    
         paragraphs: ['Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ratione sed soluta cum rerum sapiente accusantium, optio iusto dolores ipsum.'],
-        image: 'sample1.jpg',
+        image: 'sample2.jpeg',
         date: 'May 23, 2017',
         likes: 345
     },{
