@@ -124,14 +124,26 @@ main{
 .self{
     background: rgba(0,255,0, 0.2);
 }
+.self:hover{
+    background: rgba(0,255,0, 0.4);
+}
 .love{
     background: rgba(255,0,0, 0.2);
+}
+.love:hover{
+    background: rgba(255,0,0, 0.4);
 }
 .career{
     background: rgba(33,150,243, 0.2);
 }
+.career:hover{
+    background: rgba(33,150,243, 0.4);
+}
 .family{
     background: rgba(255,152,0, 0.2);
+}
+.family:hover{
+    background: rgba(255,152,0, 0.4);
 }
 
 /* MEDIA QUERIES */
