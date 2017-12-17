@@ -1,0 +1,27 @@
+<div class="article-list">
+    <div class="article-list-image-wrapper">
+            <div class="article-list-image" style="background: url('public/images-article/<%=article.image%>');background-position:center;background-size: cover;"></div>
+    </div>
+    <div class="article-list-content">
+        <div class="article-list-text">
+            <h1><%= article.name%></h1>
+            <%article.paragraphs.map(p => {%>
+                <p><%=p%></p>
+            <%})%>
+        </div>
+        <div class="article-list-footer">
+            <a href="/<%=article.tagClass%>">
+                <div class="article-list-footer-item tag <%=article.tagClass%>">
+                    <strong><%= article.tag%></strong>
+                </div>
+            </a>
+            <div class="article-list-footer-item">
+                <span class="article-list-footer-date"><%=article.date%></span>                
+            </div>
+            <div class="article-list-footer-item">
+                <img src="public/images-page/like.svg" alt="Like article heart image">
+                <span class="like-number"><%=article.likes%></span>
+            </div>
+        </div>
+    </div>
+</div>

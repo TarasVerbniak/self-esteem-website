@@ -24,35 +24,9 @@
 <main class="container">
   <div class="row">
     <div class="col m9 s12">
-        <%data.articles.map(a => {%>
-            <div class="article-list">
-                    <div class="article-list-image-wrapper">
-                            <div class="article-list-image" style="background: url('public/images-article/<%=a.image%>');background-position:center;background-size: cover;"></div>
-                    </div>
-                    <div class="article-list-content">
-                        <div class="article-list-text">
-                            <h1><%= a.name%></h1>
-                            <%a.paragraphs.map(p => {%>
-                                <p><%=p%></p>
-                            <%})%>
-                        </div>
-                        <div class="article-list-footer">
-                            <a href="/<%=a.tagClass%>">
-                                <div class="article-list-footer-item tag <%=a.tagClass%>">
-                                    <strong><%= a.tag%></strong>
-                                </div>
-                            </a>
-                            <div class="article-list-footer-item">
-                                <span class="article-list-footer-date"><%=a.date%></span>                
-                            </div>
-                            <div class="article-list-footer-item">
-                                <img src="public/images-page/like.svg" alt="Like article heart image">
-                                <span class="like-number"><%=a.likes%></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        <%})%>        
+        <% data.articles.map(a => { %>
+            <%- include('./partials/article-card', {article: a}); %>
+        <% }); %>      
     </div>
     <div class="col m3 s12">
       <div class="card">
