@@ -39,6 +39,9 @@ main{
     background: black;
     color: white;
 }
+#mobile-nav li:first-child{
+    margin-top: 30px;
+}
 #mobile-nav li a{
     color: #c3c3c3;
 }
@@ -195,8 +198,8 @@ main{
     }
     .article-list-image-wrapper{
         height: 150px;
-    }    
-    .footer-copyright .container{
-        /* display: block; */
+    }
+    #mobile-nav{
+        margin-left: 0; 
     }
 }
