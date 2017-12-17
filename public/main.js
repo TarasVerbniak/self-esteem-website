@@ -5,25 +5,6 @@ $( document ).ready(function(){
         closeOnClick: true
     });
 
-    /* TOGGLE ACTIVE NAVBAR CLASS */
-    let currentNavLi;
-    switch (window.location.pathname) {
-        case '/self':
-            currentNavLi = '#self';
-            break;
-        case '/love':
-            currentNavLi = '#love';
-            break;
-        case '/career':
-            currentNavLi = '#career';
-            break;
-        case '/family':
-            currentNavLi = '#family';
-            break;    
-        default:
-            currentNavLi = '#home';
-            break;
-    }
-    $(currentNavLi).addClass('active');
-    $(`${currentNavLi}-mobile`).addClass('active');
+    /* OTHER */
+    document.getElementById('footer-year').innerHTML = `&copy; ${new Date().getFullYear()} Copyright`;
 });

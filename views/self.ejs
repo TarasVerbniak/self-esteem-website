@@ -1,0 +1,65 @@
+<%- include ./partials/header -%>
+<nav>
+    <div class="nav-wrapper">
+        <a href="/" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
+        <div class="container">
+            <a href="/" class="brand-logo">SEW</a>
+            <ul class="hide-on-med-and-down">
+                <li id="home"><a href="/">POPULAR</a></li>
+                <li class="active"><a href="/self">SELF</a></li>
+                <li><a href="/love">LOVE</a></li>
+                <li><a href="/career">CAREER</a></li>
+                <li><a href="/family">FAMILY</a></li>
+            </ul>
+        </div>
+        <ul class="side-nav" id="mobile-nav">
+            <li><a href="/">POPULAR</a></li>
+            <li class="active"><a href="/self">SELF</a></li>
+            <li><a href="/love">LOVE</a></li>
+            <li><a href="/career">CAREER</a></li>
+            <li><a href="/family">FAMILY</a></li>
+        </ul>
+    </div>
+</nav>
+<main class="container">
+  <div class="row">
+    <div class="col m9 s12">
+        <%data.articles.map(a => {%>
+            <div class="article-list">
+                    <div class="article-list-image-wrapper">
+                        <div class="article-list-image"  style="background: url('public/images-article/<%=a.image%>') center no-repeat"></div>
+                    </div>
+                    <div class="article-list-content">
+                        <div class="article-list-text">
+                            <h1><%= a.name%></h1>
+                            <%a.paragraphs.map(p => {%>
+                                <p><%=p%></p>
+                            <%})%>
+                        </div>
+                        <div class="article-list-footer">
+                        <div class="article-list-footer-item tag <%=a.tagClass%>"><strong><%= a.tag%></strong></div>
+                        <div class="article-list-footer-item">
+                            <span class="article-list-footer-date"><%=a.date%></span>                
+                        </div>
+                        <div class="article-list-footer-item">
+                            <img src="public/images-page/like.svg" alt="Like article heart image">
+                            <span class="like-number"><%=a.likes%></span>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+        <%})%>        
+    </div>
+    <div class="col m3 s12">
+      <div class="card">
+        <div class="card-content">
+          <p>Here will be some advertising</p>
+        </div>
+        <div class="card-content grey lighten-4">
+          <div id="test4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione accusantium, dolor excepturi nesciunt corporis error et recusandae tenetur minus, officia ipsa eveniet quibusdam enim laboriosam dolores, expedita ducimus. Quaerat, nihil.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<%- include ./partials/footer -%>

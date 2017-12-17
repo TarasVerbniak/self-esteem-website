@@ -4,6 +4,12 @@ body{
     padding: 0;
     background: #c5c5c5;
     color: black;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main{
+    flex: 1 0 auto;
 }
 
 /* NAVBAR */
@@ -19,6 +25,9 @@ body{
     display: inline;
     float: none;
 }
+.hide-on-med-and-down li a:hover{
+    color: #939393;
+}
 .hide-on-med-and-down li a{
     display: inline-block;
 }
@@ -28,56 +37,113 @@ body{
 }
 .active a{
     font-weight: bold;
-    color: green;
+    color: green !important;
+}
+.active a:hover{
+    color: green !important;
+}
+#mobile-nav{
+    margin-left: -10px; /* To eliminate mobile navbar link available on desktop version on the left top website corner */
+    background: black;
+    color: white;
+}
+#mobile-nav li a{
+    color: white;
+}
+#mobile-nav li a:hover{
+    color: #939393;
 }
 
-.article{
+
+/* FOOTER */
+.page-footer{
+    background: black;
+    padding: 15px 0;
+}
+.page-footer .container{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ARTICLE LIST*/
+.article-list{
     margin: 10px 0;
     display: flex;
     box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.4);
 }
-.article-image-wrapper{
+.article-list-image-wrapper{
     flex: 1;
     position: relative;
     overflow: hidden;
 }
-.article-image{
-    background: url("https://static.pexels.com/photos/257360/pexels-photo-257360.jpeg") center no-repeat;
+.article-list-image{    
     height: 100%;
     width: 100%;
     transition: all .15s ease-in-out;
 }
-.article-image:hover{
+.article-list-image:hover{
     transform: scale(1.03)
 }
-
-.article-content{
+.article-list-text h1{
+    font-family: Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic, Arial, sans-serif;
+    margin: 15px 0;
+    font-size: 2.1rem;
+}
+.article-list-content{
     background: white;
     flex: 3;
     padding: 0 20px;
 }
-.article-footer{
+.like-number{
+    margin-left: 5px;
+}
+.article-list-footer{
+    display: flex;
+    justify-content: space-between;
     padding: 10px 0;
     border-top: 1px solid rgba(0,0,0,0.1);
 }
-.article-footer-item{
-    display: inline-block;
+.article-list-footer-item{
+    display: flex;
+    align-items: center;
 }
-.article-field{
-    padding: 3px;
+.article-list-footer .tag{
+    padding: 3px 10px;
     text-align: center;
     border-radius: 2px;
-    width: 130px;
     color: black;
 }
+.article-list-footer-item img{
+    height: 20px;
+    width: 20px;
+}
+.article-list-footer-date{
+    color: #7e7e7e;
+    margin-left: 5px;
+}
+.self{
+    background: rgba(0,255,0, 0.2);
+}
+.love{
+    background: rgba(255,0,0, 0.2);
+}
+.career{
+    background: rgba(33,150,243, 0.2);
+}
+.family{
+    background: rgba(255,152,0, 0.2);
+}
 
-
+/* MEDIA QUERIES */
 @media screen and (max-width: 992px) {
-    .article{
+    .article-list{
         display: flex;
         flex-direction: column;
     }
-    .article-image-wrapper{
+    .article-list-image-wrapper{
         height: 150px;
     }    
+    .footer-copyright .container{
+        /* display: block; */
+    }
 }
