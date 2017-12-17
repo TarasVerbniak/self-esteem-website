@@ -38,7 +38,7 @@ const popular = {
         paragraphs: ['Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ratione sed soluta cum rerum sapiente accusantium, optio iusto dolores ipsum.'],
         image: 'sample1.jpg',
         date: 'December 17, 2017',
-        likes: 345
+        likes: 3212
     }]
 };
 
@@ -139,7 +139,8 @@ app.use('/public', express.static('public'));
 
 /* REQUEST HANDLERS */
 app.get('/', (req, res) => {
-    res.render('popular', {data: popular});
+    const sortedPopular = popular.articles.sort((f,s) => f.likes < s.likes);
+    res.render('popular', {data: {articles: sortedPopular}});
 });
 app.get('/self', (req, res) => {
     res.render('self', {data: self});
@@ -155,6 +156,9 @@ app.get('/family', (req, res) => {
 });
 app.get('*', (req, res) => {
     res.send('Sorry, webpage is not found...');
+});
+app.all('*', (req, res) => {
+    res.send('Sorry, you can\'t do this...');
 });
 
 const PORT = process.env.PORT || 8000;
