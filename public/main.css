@@ -123,6 +123,13 @@ main{
 .article-list-image:hover::after{
     opacity: 0.5;
 }
+.article-list-text a{
+    color: black;
+    text-decoration: none;
+}
+.article-list-text a:hover{
+    color: #696969;
+}
 .article-list-text h1{
     font-family: Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic, Arial, sans-serif;
     margin: 15px 0;

@@ -7,28 +7,31 @@ const popular = {
         id: '1',
         tag: 'SELF',
         tagClass: 'self',
-        name: 'This is the best website ever done!',    
+        name: 'The way I become successful',
         paragraphs: ['Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, mollitia.'],
         image: 'sample1.jpg',
         date: 'December 23, 2017',
+        url: 'the-way-i-become-successful',
         likes: 23
     },{
         id: '2',
         tag: 'LOVE',
         tagClass: 'love',
-        name: 'The second article from the "self" series',    
+        name: 'To become a millionaire in 1 year',
         paragraphs: ['Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ratione sed soluta cum rerum sapiente accusantium, optio iusto dolores ipsum.'],
         image: 'sample2.jpg',
         date: 'November 17, 2017',
+        url: 'to-become-a-millionaire-in-1-year',
         likes: 11
     },{
         id: '2',
         tag: 'CAREER',
         tagClass: 'career',
-        name: 'The third article from the "self" series',    
+        name: 'How to overcome anxiety',    
         paragraphs: ['Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ratione sed soluta cum rerum sapiente accusantium, optio iusto dolores ipsum.'],
         image: 'sample2.jpg',
         date: 'May 23, 2017',
+        url: 'how-to-overcome-anxiety',
         likes: 345
     },{
         id: '2',
@@ -38,6 +41,7 @@ const popular = {
         paragraphs: ['Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ratione sed soluta cum rerum sapiente accusantium, optio iusto dolores ipsum.'],
         image: 'sample1.jpg',
         date: 'December 17, 2017',
+        url: 'last-article',
         likes: 3212
     }]
 };
@@ -52,6 +56,7 @@ const self = {
         paragraphs: ['Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, mollitia.'],
         image: 'sample1.jpg',
         date: 'December 23, 2017',
+        url: 'best-site',
         likes: 23
     },{
         id: '2',
@@ -61,6 +66,7 @@ const self = {
         paragraphs: ['Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ratione sed soluta cum rerum sapiente accusantium, optio iusto dolores ipsum.'],
         image: 'sample1.jpg',
         date: 'November 17, 2017',
+        url: 'second-article',
         likes: 11
     }]
 };
@@ -75,6 +81,7 @@ const love = {
         paragraphs: ['Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, mollitia.'],
         image: 'sample1.jpg',
         date: 'December 23, 2017',
+        url: 'last-article',
         likes: 23
     },{
         id: '2',
@@ -84,6 +91,7 @@ const love = {
         paragraphs: ['Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ratione sed soluta cum rerum sapiente accusantium, optio iusto dolores ipsum.'],
         image: 'sample1.jpg',
         date: 'November 17, 2017',
+        url: 'last-article',
         likes: 11
     }]
 };
@@ -97,6 +105,7 @@ const career = {
         paragraphs: ['Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, mollitia.'],
         image: 'sample1.jpg',
         date: 'December 23, 2017',
+        url: 'last-article',
         likes: 23
     },{
         id: '2',
@@ -106,6 +115,7 @@ const career = {
         paragraphs: ['Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ratione sed soluta cum rerum sapiente accusantium, optio iusto dolores ipsum.'],
         image: 'sample1.jpg',
         date: 'November 17, 2017',
+        url: 'last-article',
         likes: 11
     }]
 };
@@ -119,6 +129,7 @@ const family = {
         paragraphs: ['Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, mollitia.'],
         image: 'sample1.jpg',
         date: 'December 23, 2017',
+        url: 'last-article',
         likes: 23
     },{
         id: '2',
@@ -128,6 +139,7 @@ const family = {
         paragraphs: ['Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ratione sed soluta cum rerum sapiente accusantium, optio iusto dolores ipsum.'],
         image: 'sample1.jpg',
         date: 'November 17, 2017',
+        url: 'last-article',
         likes: 11
     }]
 };
@@ -139,6 +151,7 @@ app.use('/public', express.static('public'));
 
 
 /* REQUEST HANDLERS */
+// Main
 app.get('/', (req, res) => {
     const sortedPopular = popular.articles.sort((f,s) => f.likes < s.likes);
     res.render('articles-list', {data: popular});
@@ -155,12 +168,19 @@ app.get('/career', (req, res) => {
 app.get('/family', (req, res) => {
     res.render('articles-list', {data: family});
 });
+// Articles
+// app.get('/:article', (req, res) => {
+//     console.log('url',req.originalUrl)
+//     console.log('url fixed',req.originalUrl.substring(1))
+//     res.render('articles-list', {data: family});
+// });
+// Other
 app.get('*', (req, res) => {
     const url = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
-    res.render('not-found', {data: url});
+    res.status(404).render('not-found', {data: url});
 });
 app.all('*', (req, res) => {
-    res.send('Sorry, you can\'t do this...');
+    res.status(403).send('Sorry, you can\'t do this...');
 });
 
 const PORT = process.env.PORT || 8000;

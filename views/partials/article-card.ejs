@@ -1,10 +1,14 @@
 <div class="article-list">
     <div class="article-list-image-wrapper">
+        <a href=<%=article.url%>>
             <div class="article-list-image" style="background: url('public/images-article/<%=article.image%>');background-position:center;background-size: cover;"></div>
+        </a>
     </div>
     <div class="article-list-content">
         <div class="article-list-text">
-            <h1><%= article.name%></h1>
+            <a href=<%=article.url%>>
+                <h1><%=article.name%></h1>
+            </a>
             <%_ article.paragraphs.map(p => { _%>
                 <p><%=p%></p>
             <%_ }) _%>
@@ -16,7 +20,7 @@
                 </div>
             </a>
             <div class="article-list-footer-item">
-                <span class="article-list-footer-date"><%=article.date%></span>                
+                <span class="article-list-footer-date"><%=article.date%></span>               
             </div>
             <div class="article-list-footer-item">
                 <img src="public/images-page/like.svg" alt="Like article heart image">
