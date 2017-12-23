@@ -30,6 +30,9 @@ main{
     display: inline;
     float: none;
 }
+.hide-on-med-and-down li span{
+    padding: 0 15px;
+}
 .hide-on-med-and-down li a{
     color: #c3c3c3;
     display: inline-block;
@@ -41,6 +44,9 @@ main{
     margin-left: -10px; /* To eliminate mobile navbar link available on desktop version on the left top website corner */
     background: black;
     color: white;
+}
+#mobile-nav li span{
+    padding: 0 32px;
 }
 #mobile-nav li:first-child{
     margin-top: 30px;
@@ -55,25 +61,30 @@ main{
     margin-left: 20px;
     border-left: none;
 }
-.nav-popular a{
+.nav-popular{
     font-weight: bold;
     color: #4db6ac !important;
+    cursor: default;
 }
-.nav-self a{
+.nav-self{
     font-weight: bold;
     color: rgba(0,255,0, .8) !important;
+    cursor: default;
 }
-.nav-love a{
+.nav-love{
     font-weight: bold;
     color: rgba(255,0,0, 0.9) !important;
+    cursor: default;
 }
-.nav-career a{
+.nav-career{
     font-weight: bold;
     color: rgba(33,150,243, 1) !important;
+    cursor: default;
 }
-.nav-family a{
+.nav-family{
     font-weight: bold;
     color:  rgba(255,152,0, 0.8) !important;
+    cursor: default;
 }
 
 /* FOOTER */
