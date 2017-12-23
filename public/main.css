@@ -18,6 +18,9 @@ main{
 .nav-wrapper{
     background: black;
 }
+.brand-logo a:hover{
+    color: #c3c3c3;
+}
 .hide-on-med-and-down{
     text-align: center !important;
 }
@@ -167,29 +170,37 @@ main{
     color: #7e7e7e;
     margin-left: 5px;
 }
-.self{
+.self, .self-nolink{
     background: rgba(0,255,0, 0.2);
+    cursor: default;
 }
 .self:hover{
     background: rgba(0,255,0, 0.4);
+    cursor: pointer;
 }
-.love{
+.love, .love-nolink{
     background: rgba(255,0,0, 0.2);
+    cursor: default;
 }
 .love:hover{
     background: rgba(255,0,0, 0.4);
+    cursor: pointer;
 }
-.career{
+.career, .career-nolink{
     background: rgba(33,150,243, 0.2);
+    cursor: default;
 }
 .career:hover{
     background: rgba(33,150,243, 0.4);
+    cursor: pointer;
 }
-.family{
+.family, .family-nolink{
     background: rgba(255,152,0, 0.2);
+    cursor: default;
 }
 .family:hover{
     background: rgba(255,152,0, 0.4);
+    cursor: pointer;
 }
 
 /* AD */

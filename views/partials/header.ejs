@@ -14,7 +14,11 @@
         <div class="nav-wrapper">
             <a href="/" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
             <div class="container">
-                <a href="/" class="brand-logo">SEW</a>
+                <%_ if (link === 'POPULAR') { _%>
+                    <span class="brand-logo">SEW</span>
+                <%_ } else { _%>
+                    <span class="brand-logo"><a href="/">SEW</a></span>
+                <%_ } _%>
                 <ul class="hide-on-med-and-down">
                 <%_ if (link === 'POPULAR') { _%>
                     <li id="home" class="nav-popular"><a href="/">POPULAR</a></li>

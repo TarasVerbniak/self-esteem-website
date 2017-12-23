@@ -3,7 +3,7 @@
   <div class="row main-row">
     <div class="col m9 s12">
         <% data.articles.map(a => { %>
-            <%- include('./partials/article-card', {article: a}); -%>
+            <%- include('./partials/article-card', {article: a, link: data.name}); -%>
         <% }); %>      
     </div>
     <div class="col m3 s12">

@@ -14,11 +14,19 @@
             <%_ }) _%>
         </div>
         <div class="article-list-footer">
-            <a href="/<%=article.tagClass%>">
-                <div class="article-list-footer-item tag <%=article.tagClass%>">
-                    <strong><%= article.tag%></strong>
-                </div>
-            </a>
+            <%_ if (link === 'POPULAR') { _%>
+                <a href="/<%=article.tagClass%>">
+                    <div class="article-list-footer-item tag <%=article.tagClass%>">
+                        <strong><%= article.tag%></strong>
+                    </div>
+                </a>
+            <%_ } else { _%>
+                <span>
+                    <div class="article-list-footer-item tag <%=article.tagClass%>-nolink">
+                        <strong><%= article.tag%></strong>
+                    </div>
+                </span>
+            <%_ } _%>
             <div class="article-list-footer-item">
                 <span class="article-list-footer-date"><%=article.date%></span>               
             </div>
