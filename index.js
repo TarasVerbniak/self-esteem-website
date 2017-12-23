@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
 
-const popular = {
-    name: 'POPULAR',
+const data = {
     articles: [{
         id: '1',
         tag: 'SELF',
@@ -12,7 +11,7 @@ const popular = {
         image: 'sample1.jpg',
         date: 'December 23, 2017',
         url: 'the-way-i-become-successful',
-        likes: 23
+        likes: 273
     },{
         id: '2',
         tag: 'LOVE',
@@ -24,7 +23,7 @@ const popular = {
         url: 'to-become-a-millionaire-in-1-year',
         likes: 11
     },{
-        id: '2',
+        id: '3',
         tag: 'CAREER',
         tagClass: 'career',
         name: 'How to overcome anxiety',    
@@ -34,7 +33,7 @@ const popular = {
         url: 'how-to-overcome-anxiety',
         likes: 345
     },{
-        id: '2',
+        id: '4',
         tag: 'FAMILY',
         tagClass: 'family',
         name: 'The last article from the "self" series',    
@@ -43,38 +42,9 @@ const popular = {
         date: 'December 17, 2017',
         url: 'last-article',
         likes: 3212
-    }]
-};
-
-const self = {
-    name: 'SELF',
-    articles: [{
-        id: '1',
-        tag: 'SELF',
-        tagClass: 'self',
-        name: 'This is the best website ever done!',    
-        paragraphs: ['Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, mollitia.'],
-        image: 'sample1.jpg',
-        date: 'December 23, 2017',
-        url: 'best-site',
-        likes: 23
-    },{
-        id: '2',
-        tag: 'SELF',
-        tagClass: 'self',
-        name: 'The second article from the "self" series',    
-        paragraphs: ['Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ratione sed soluta cum rerum sapiente accusantium, optio iusto dolores ipsum.'],
-        image: 'sample1.jpg',
-        date: 'November 17, 2017',
-        url: 'second-article',
-        likes: 11
-    }]
-};
-
-const love = {
-    name: 'LOVE',
-    articles: [{
-        id: '1',
+    },
+    {
+        id: '5',
         tag: 'LOVE',
         tagClass: 'love',
         name: 'This is the best website ever done!',    
@@ -82,9 +52,9 @@ const love = {
         image: 'sample1.jpg',
         date: 'December 23, 2017',
         url: 'last-article',
-        likes: 23
+        likes: 53
     },{
-        id: '2',
+        id: '6',
         tag: 'LOVE',
         tagClass: 'love',
         name: 'The second article from the "self" series',    
@@ -92,13 +62,10 @@ const love = {
         image: 'sample1.jpg',
         date: 'November 17, 2017',
         url: 'last-article',
-        likes: 11
-    }]
-};
-const career = {
-    name: 'CAREER',
-    articles: [{
-        id: '1',
+        likes: 8
+    },
+    {
+        id: '7',
         tag: 'CAREER',
         tagClass: 'career',
         name: 'This is the best website ever done!',    
@@ -106,9 +73,9 @@ const career = {
         image: 'sample1.jpg',
         date: 'December 23, 2017',
         url: 'last-article',
-        likes: 23
+        likes: 12
     },{
-        id: '2',
+        id: '8',
         tag: 'CAREER',
         tagClass: 'career',
         name: 'The second article from the "self" series',    
@@ -116,13 +83,10 @@ const career = {
         image: 'sample1.jpg',
         date: 'November 17, 2017',
         url: 'last-article',
-        likes: 11
-    }]
-};
-const family = {
-    name: 'FAMILY',
-    articles: [{
-        id: '1',
+        likes: 96
+    },
+    {
+        id: '9',
         tag: 'FAMILY',
         tagClass: 'family',
         name: 'This is the best website ever done!',    
@@ -130,9 +94,9 @@ const family = {
         image: 'sample1.jpg',
         date: 'December 23, 2017',
         url: 'last-article',
-        likes: 23
+        likes: 48
     },{
-        id: '2',
+        id: '10',
         tag: 'FAMILY',
         tagClass: 'family',
         name: 'The second article from the "self" series',    
@@ -140,7 +104,7 @@ const family = {
         image: 'sample1.jpg',
         date: 'November 17, 2017',
         url: 'last-article',
-        likes: 11
+        likes: 37
     }]
 };
 
@@ -153,27 +117,31 @@ app.use('/public', express.static('public'));
 /* REQUEST HANDLERS */
 // Main
 app.get('/', (req, res) => {
-    const sortedPopular = popular.articles.sort((f,s) => f.likes < s.likes);
-    res.render('articles-list', {data: popular});
+    const popular = data.articles.sort((f,s) => f.likes < s.likes);
+    res.render('articles-list', { data: {name: 'POPULAR', articles: popular} }); /* Implement .slice(0, 5) and pagination */
 });
 app.get('/self', (req, res) => {
-    res.render('articles-list', {data: self});
+    const self = data.articles.filter(a => a.tag === 'SELF');
+    res.render('articles-list', { data: {name: 'SELF', articles: self} });
 });
 app.get('/love', (req, res) => {
-    res.render('articles-list', {data: love});
+    const love = data.articles.filter(a => a.tag === 'LOVE');
+    res.render('articles-list', { data: {name: 'LOVE', articles: love} });
 });
 app.get('/career', (req, res) => {
-    res.render('articles-list', {data: career});
+    const career = data.articles.filter(a => a.tag === 'CAREER');
+    res.render('articles-list', { data: {name: 'CAREER', articles: career} });
 });
 app.get('/family', (req, res) => {
-    res.render('articles-list', {data: family});
+    const family = data.articles.filter(a => a.tag === 'FAMILY');
+    res.render('articles-list', { data: {name: 'FAMILY', articles: family} });
 });
 // Articles
-// app.get('/:article', (req, res) => {
-//     console.log('url',req.originalUrl)
-//     console.log('url fixed',req.originalUrl.substring(1))
-//     res.render('articles-list', {data: family});
-// });
+app.get('/:article', (req, res) => {
+    console.log('url',req.originalUrl)
+    console.log('url fixed',req.originalUrl.substring(1))
+    res.render('articles-list', { data: {name: 'FAMILY', articles: data.articles} });
+});
 // Other
 app.get('*', (req, res) => {
     const url = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
