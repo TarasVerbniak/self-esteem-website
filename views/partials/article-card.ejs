@@ -1,28 +1,28 @@
 <div class="article-list">
     <div class="article-list-image-wrapper">
-        <a href=<%=article.url%>>
+        <a href="<%=article.url%>">
             <div class="article-list-image" style="background: url('public/images-article/<%=article.image%>');background-position:center;background-size: cover;"></div>
         </a>
     </div>
     <div class="article-list-content">
         <div class="article-list-text">
-            <a href=<%=article.url%>>
+            <a href="<%=article.url%>">
                 <h1><%=article.name%></h1>
             </a>
-            <%_ article.paragraphs.map(p => { _%>
+            <%_ article.summary.map(p => { _%>
                 <p><%=p%></p>
             <%_ }) _%>
         </div>
         <div class="article-list-footer">
             <%_ if (link === 'POPULAR') { _%>
-                <a href="/<%=article.tagClass%>">
-                    <div class="article-list-footer-item tag <%=article.tagClass%>">
+                <a href="/<%=article.section%>">
+                    <div class="article-list-footer-item tag <%=article.section%>">
                         <strong><%= article.tag%></strong>
                     </div>
                 </a>
             <%_ } else { _%>
                 <span>
-                    <div class="article-list-footer-item tag <%=article.tagClass%>-nolink">
+                    <div class="article-list-footer-item tag <%=article.section%>-nolink">
                         <strong><%= article.tag%></strong>
                     </div>
                 </span>

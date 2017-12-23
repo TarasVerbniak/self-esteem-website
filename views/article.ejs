@@ -1,10 +1,13 @@
-<%- include('./partials/header', {link: data.name}) -%>
+<%- include('./partials/header', {link: ''}) -%>
 <main class="container">
   <div class="row main-row">
     <div class="col m9 s12">
-        <% data.articles.map(a => { %>
-            <%- include('./partials/article-card', {article: a, link: data.name}); -%>
+        <div class="card article-card">
+      <h1><%= article.name %></h1>
+        <% article.paragraphs.map(p => { %>
+            <p><%= p%></p>
         <% }); %>
+      </div>
     </div>
     <div class="col m3 s12">
       <div class="card card-ad">

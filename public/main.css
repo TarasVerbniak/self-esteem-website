@@ -2,11 +2,15 @@
 body{
     margin: 0;
     padding: 0;
-    background: #c3c3c3;
+    /* background: #c3c3c3; */
     color: black;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+}
+p{
+    font-family: Georgia, Times New Roman, Times, serif;
+    font-size: 1.1rem;
 }
 main{
     flex: 1 0 auto;
@@ -150,7 +154,7 @@ main{
     font-size: 2.1rem;
 }
 .article-list-content{
-    background: white;
+    background-color: #f1f1f1;
     flex: 3;
     padding: 0 20px;
 }
@@ -212,6 +216,22 @@ main{
 .family:hover{
     background: rgba(255,152,0, 0.4);
     cursor: pointer;
+}
+
+/* ARTICLE */
+.article-card{
+    margin: 20px 0;
+    padding: 0;
+    box-shadow: none;
+}
+.article-card  h1{
+    font-family: Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic, Arial, sans-serif;
+    margin: 15px 0;
+    font-size: 3rem;
+}
+.article-card p{
+    margin-bottom: 1.5em;
+    line-height: 1.7;
 }
 
 /* AD */
