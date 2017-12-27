@@ -3,6 +3,7 @@ body{
     margin: 0;
     padding: 0;
     /* background: #c3c3c3; */
+    font-size: 17px;
     color: black;
     display: flex;
     min-height: 100vh;
@@ -10,7 +11,7 @@ body{
 }
 p{
     font-family: Georgia, Times New Roman, Times, serif;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 main{
     flex: 1 0 auto;

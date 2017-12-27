@@ -1,12 +1,12 @@
 <div class="article-list">
     <div class="article-list-image-wrapper">
-        <a href="<%=article.url%>">
+        <a href="<%=article.section%>/<%=article.url%>">
             <div class="article-list-image" style="background: url('public/images-article/<%=article.image%>');background-position:center;background-size: cover;"></div>
         </a>
     </div>
     <div class="article-list-content">
         <div class="article-list-text">
-            <a href="<%=article.url%>">
+            <a href="<%=article.section%>/<%=article.url%>">
                 <h1><%=article.name%></h1>
             </a>
             <%_ article.summary.map(p => { _%>
