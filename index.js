@@ -19,7 +19,7 @@ const data = {
             },
             {
                 tag: 'h2',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.'
+                text: '1. Lorem ipsum dolor, sit amet consectetur adipisicing elit.'
             },
             {
                 tag: 'p',
@@ -28,6 +28,10 @@ const data = {
             {
                 tag: 'p',
                 text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.'
+            },
+            {
+                tag: 'h2',
+                text: '2. Lorem ipsum dolor, sit amet consectetur adipisicing elit.'
             },
             {
                 tag: 'p',

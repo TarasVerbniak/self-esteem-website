@@ -227,12 +227,26 @@ main{
 }
 .article-card  h1{
     font-family: Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic, Arial, sans-serif;
-    margin: 15px 0;
+    margin: 15px 0 10px 0;
     font-size: 3rem;
 }
+.article-card  h2{
+    font-family: Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic, Arial, sans-serif;
+    margin: 35px 0 15px 0;
+    font-size: 1.6rem;
+}
 .article-card p{
-    margin-bottom: 1.5em;
+    margin-bottom: 1.3em;
     line-height: 1.7;
+}
+.article-date{
+    color: #7e7e7e;
+    font-size: 15px;
+}
+.article-divider{
+    margin: 15px 0;
+    width: 80px;
+    border-bottom: 1px solid #d3d3d3;
 }
 
 /* AD */
