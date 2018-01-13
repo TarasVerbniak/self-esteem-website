@@ -6,7 +6,7 @@ const data = {
         id: '1',
         tag: 'SELF',
         section: 'self',
-        name: 'The way I become successful',
+        name: 'The way I become succefffffffssful , sit amet consectetur adipisicing elit. Rerum doloremque  ',
         summary: ['Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, mollitia.'],
         paragraphs: [
             {

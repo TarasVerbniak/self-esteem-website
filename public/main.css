@@ -222,17 +222,19 @@ main{
 
 /* ARTICLE */
 .article-card{
+    font-family: Arial, sans-serif;
     margin: 20px 0;
     padding: 0;
     box-shadow: none;
 }
 .article-card  h1{
-    font-family: Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic, Arial, sans-serif;
+    /* line-height: 100%; */
+    font-weight: bold;
     margin: 15px 0 10px 0;
     font-size: 3rem;
 }
 .article-card  h2{
-    font-family: Franklin Gothic Medium, Franklin Gothic, ITC Franklin Gothic, Arial, sans-serif;
+    font-weight: bold;
     margin: 35px 0 15px 0;
     font-size: 1.6rem;
 }
@@ -282,6 +284,11 @@ main{
 }
 
 /* MEDIA QUERIES */
+@media screen and (max-width: 600px) {
+    .article-card  h1{
+        line-height: 100%;
+    }
+}
 @media screen and (max-width: 992px) {
     .article-list{
         display: flex;
