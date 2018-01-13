@@ -6,12 +6,12 @@ const data = {
         id: '1',
         tag: 'SELF',
         section: 'self',
-        name: 'Corporis, quis sit amet consectetur natus velit repellendus molestiae maiores ipsam dolor',
-        summary: ['Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, mollitia.'],
+        name: 'I was wondering if my cat could be placed over the logo',
+        summary: ['Something summery; colourful i cant pay you it looks a bit empty, try to make everything bigger, i was wondering if my cat could be placed over the logo in the flyer and this red is too red or can you make it pop, for im not sure, try something else. '],
         paragraphs: [
             {
                 tag: 'p',
-                text: 'Crash against wall but walk away like nothing happened rub whiskers on bare skin act innocent, climb a tree, wait for a fireman jump to fireman then scratch his face, or you call this cat food, poop in litter box, scratch the walls. Cat slap dog in face refuse to drink water except out of someone\'s glass so intently stare at the same spot jumps off balcony gives owner dead mouse at present then poops in litter box snatches yarn and fights with dog cat chases laser then plays in grass finds tiny spot in cupboard and sleeps all day jumps in bathtub and meows when owner fills food dish the cat knocks over the food dish cat slides down the water slide and into pool and swims even though it does not like water and meowing chowing and wowing. Meow to be let in cough furball.'
+                text: 'Something summery; colourful i cant pay you it looks a bit empty, try to make everything bigger, i was wondering if my cat could be placed over the logo in the flyer and this red is too red or can you make it pop, for im not sure, try something else. Try making it a bit less blah start on it today and we will talk about what i want next time but can you put "find us on facebook" by the facebook logo? so needs to be sleeker could you rotate the picture to show the other side of the room? we are a non-profit organization, and can you put "find us on facebook" by the facebook logo?.'
             },
             {
                 tag: 'p',
@@ -50,7 +50,7 @@ const data = {
         id: '2',
         tag: 'SELF',
         section: 'self',
-        name: 'Ratione accusantium, dolor exceptur?',
+        name: 'I really like the colour but can you change it?',
         summary: ['Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, mollitia.'],
         paragraphs: [
             {
@@ -98,7 +98,7 @@ const data = {
         id: '3',
         tag: 'LOVE',
         section: 'love',
-        name: 'Rerum doloremque veritatis',
+        name: 'This looks perfect',
         summary: ['Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, mollitia.'],
         paragraphs: [
             {
