@@ -169,10 +169,11 @@ main{
     border-top: 1px solid rgba(0,0,0,0.1);
 }
 .article-list-footer-item{
+    position: relative;
     display: flex;
     align-items: center;
 }
-.article-list-footer .tag{
+.article-list-footer .tag, .article-section .tag{
     padding: 3px 10px;
     text-align: center;
     border-radius: 2px;
@@ -239,6 +240,10 @@ main{
     margin-bottom: 1.3em;
     line-height: 1.7;
 }
+.article-section{
+    display: inline-block;
+    
+}
 .article-date{
     color: #7e7e7e;
     font-size: 15px;
@@ -247,6 +252,28 @@ main{
     margin: 15px 0;
     width: 80px;
     border-bottom: 1px solid #d3d3d3;
+}
+.article-card .svg-like img{
+    width: 25px;
+    height: 25px;
+}
+.article-card .svg-like{
+    position: relative;
+    top: 3px;
+    cursor: pointer;
+    animation: likePulsation 2s ease-in-out infinite;
+}
+
+@keyframes likePulsation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.7);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* AD */

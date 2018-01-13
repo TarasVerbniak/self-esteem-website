@@ -3,6 +3,13 @@
   <div class="row main-row">
     <div class="col m9 s12">
       <div class="card article-card">
+        <div class="article-section">
+          <a href="/<%=article.section%>">
+            <div class="article-list-footer-item tag <%=article.section%>">
+                <strong><%= article.tag%></strong>
+            </div>
+          </a>
+        </div>
         <h1><%= article.name %></h1>
         <div class="article-date"><i><%=article.date%></i></div>
         <div class="article-divider"></div>
@@ -10,15 +17,8 @@
             <<%= p.tag %>><%= p.text%></<%= p.tag %>>
         <% }); %>
         <div class="article-divider"></div>
-        <!-- <div class="article-section">
-          <a href="/<%=article.section%>">
-            <div class="article-list-footer-item tag <%=article.section%>">
-                <strong><%= article.tag%></strong>
-            </div>
-          </a>
-        </div> -->
         <div class="article-list-footer-item">
-          <img src="public/images-page/like.svg" alt="Like article heart image">
+          <a class="tooltipped svg-like" data-position="top" data-delay="50" data-tooltip="Leave a like"><img src="public/images-page/like.svg" alt="Like article heart image" class=""></a>
           <span class="like-number"><%=article.likes%></span>
         </div>
       </div>
