@@ -28,9 +28,10 @@ main{
 .main-row{
     margin-bottom: 0 !important;
 }
+
 /* NAVBAR */
 .nav-wrapper{
-    background: black;
+    background: #4e342e;
 }
 .brand-logo a:hover{
     color: #c3c3c3;
@@ -103,7 +104,7 @@ main{
 
 /* FOOTER */
 .page-footer{
-    background: black;
+    background: #4e342e;
     padding: 15px 0;
 }
 .page-footer .container{
