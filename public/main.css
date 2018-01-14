@@ -21,6 +21,8 @@ h2{
 p{
     font-family: Georgia, Times New Roman, Times, serif;
     font-size: 1.2rem;
+    text-align: justify;
+    text-justify: inter-word;
 }
 main{
     flex: 1 0 auto;
@@ -163,7 +165,7 @@ main{
     margin: 15px 0;
 }
 .article-list-content{
-    background-color: #d7ccc8;
+    /* background-color: #d7ccc8; */
     flex: 3;
     padding: 0 20px;
 }
