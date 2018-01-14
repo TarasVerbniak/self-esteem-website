@@ -1,181 +1,10 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const Article = require('./dbmodels/article');
 const app = express();
 
-const data = {
-    articles: [{
-        id: '1',
-        tag: 'SELF',
-        section: 'self',
-        name: 'I was wondering if my cat could be placed over the logo',
-        summary: ['Something summery; colourful i cant pay you it looks a bit empty, try to make everything bigger, i was wondering if my cat could be placed over the logo in the flyer and this red is too red or can you make it pop, for im not sure, try something else. '],
-        paragraphs: [
-            {
-                tag: 'p',
-                text: 'Something summery; colourful i cant pay you it looks a bit empty, try to make everything bigger, i was wondering if my cat could be placed over the logo in the flyer and this red is too red or can you make it pop, for im not sure, try something else. Try making it a bit less blah start on it today and we will talk about what i want next time but can you put "find us on facebook" by the facebook logo? so needs to be sleeker could you rotate the picture to show the other side of the room? we are a non-profit organization, and can you put "find us on facebook" by the facebook logo?.'
-            },
-            {
-                tag: 'p',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.'
-            },
-            {
-                tag: 'h2',
-                text: '1. Lorem ipsum dolor, sit amet consectetur adipisicing elit.'
-            },
-            {
-                tag: 'p',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.'
-            },
-            {
-                tag: 'p',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.'
-            },
-            {
-                tag: 'h2',
-                text: '2. Lorem ipsum dolor, sit amet consectetur adipisicing elit.'
-            },
-            {
-                tag: 'p',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.'
-            },
-            {
-                tag: 'p',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.'
-            }
-        ],
-        image: 'sample1.jpg',
-        date: 'December 23, 2017',
-        url: 'the-way-i-become-successful',
-        likes: 273
-    },{
-        id: '2',
-        tag: 'SELF',
-        section: 'self',
-        name: 'I really like the colour but can you change it?',
-        summary: ['Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, mollitia.'],
-        paragraphs: [
-            {
-                tag: 'p',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.'
-            },
-            {
-                tag: 'h2',
-                text: '1. Lorem ipsum dolor, sit amet consectetur adipisicing elit.'
-            },
-            {
-                tag: 'p',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.'
-            },
-            {
-                tag: 'h2',
-                text: '2. Lorem ipsum dolor, sit amet consectetur adipisicing elit.'
-            },
-            {
-                tag: 'p',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.'
-            },
-            {
-                tag: 'h2',
-                text: '3. Lorem ipsum dolor, sit amet consectetur adipisicing elit.'
-            },
-            {
-                tag: 'p',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.'
-            },
-            {
-                tag: 'p',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.'
-            },
-            {
-                tag: 'p',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum. Rerum doloremque veritatis voluptatem ad? '
-            }
-        ],
-        image: 'sample1.jpg',
-        date: 'December 23, 2017',
-        url: 'become-successful',
-        likes: 273
-    },{
-        id: '3',
-        tag: 'LOVE',
-        section: 'love',
-        name: 'This looks perfect',
-        summary: ['Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, mollitia.'],
-        paragraphs: [
-            {
-                tag: 'p',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.'
-            },
-            {
-                tag: 'p',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.'
-            },
-            {
-                tag: 'p',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.'
-            },
-            {
-                tag: 'p',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.'
-            },
-            {
-                tag: 'p',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.'
-            },
-            {
-                tag: 'p',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.'
-            },
-            {
-                tag: 'p',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.'
-            }
-        ],
-        image: 'sample2.jpg',
-        date: 'November 17, 2017',
-        url: 'to-become-a-millionaire-in-1-year',
-        likes: 11
-    },{
-        id: '4',
-        tag: 'FAMILY',
-        section: 'family',
-        name: 'Bandwidth product management breakout fastworks',
-        summary: ['Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, mollitia.'],
-        paragraphs: [
-            {
-                tag: 'p',
-                text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum doloremque veritatis voluptatem ad? Aut, non optio pariatur reiciendis, natus velit repellendus molestiae corrupti maiores ipsam odio dolor. Corporis, quis rerum.'
-            },
-            {
-                tag: 'p',
-                text: 'Push back quick win i don\'t want to drain the whole swamp, i just want to shoot some alligators so this proposal is a win-win situation which will cause a stellar paradigm shift, and produce a multi-fold increase in deliverables. Idea shower punter paddle on both sides product management breakout fastworks. Organic growth we need to button up our approach wiggle room. Globalize. Shoot me an email high touch client this is not the hill i want to die on, and game plan, but upsell. Shoot me an email idea shower, yet push back, streamline. Meeting assassin paddle on both sides, yet re-inventing the wheel. What do you feel you would bring to the table if you were hired for this position bells and whistles streamline hit the ground running.'
-            },
-            {
-                tag: 'p',
-                text: 'Closing these latest prospects is like putting socks on an octopus critical mass, or paddle on both sides i also believe it\'s important for every member to be involved and invested in our company and this is one way to do so window-licker, for bells and whistles, and bleeding edge. Productize game plan, but synergize productive mindfulness so overcome key issues to meet key milestones, yet vertical integration, so we want to see more charts.'
-            },
-            {
-                tag: 'p',
-                text: 'Take five, punch the tree, and come back in here with a clear head we need to socialize the comms with the wider stakeholder community. This proposal is a win-win situation which will cause a stellar paradigm shift, and produce a multi-fold increase in deliverables blue money high touch client for highlights yet we need to start advertising on social media. Take five, punch the tree, and come back in here with a clear head price point. Diversify kpis shotgun approach, so fire up your browser, or message the initiative at the end of the day. Pig in a python viral engagement pulling teeth, and cross sabers. We need distributors to evangelize the new line to local markets after I ran into Helen at a restaurant, I realized she was just office pretty. Good optics what\'s the status on the deliverables for eow?. We need to button up our approach screw the pooch, driving the initiative forward yet productize. Collaboration through advanced technlogy.'
-            },
-            {
-                tag: 'p',
-                text: 'Can you make the logo bigger yes bigger bigger still the logo is too big. Something summery; colourful can you turn it around in photoshop so we can see more of the front, so we don\'t need a contract, do we other agencies charge much lesser. Jazz it up a little what you\'ve given us is texty, we want sexy yet can you make it look like this clipart i found yet try a more powerful colour can you make the logo bigger yes bigger bigger still the logo is too big and we have big contacts we will promote you we exceed the clients\' expectations. Can you make pink a little more pinkish is this the best we can do, or low resolution? It looks ok on my screen it\'s great, can you add a beard though but jazz it up a little, yet can you make pink a little more pinkish. Needs to be sleeker the flier should feel like a warm handshake give us a complimentary logo along with the website can you help me out?'
-            },
-            {
-                tag: 'p',
-                text: 'Remember, everything is the same or better i\'ll pay you in a week we don\'t need to pay upfront i hope you understand. This looks perfect. Just Photoshop out the dog, add a baby, and make the curtains blue. I really think this could go viral low resolution?'
-            },
-            {
-                tag: 'p',
-                text: 'I really like the colour but can you change it, can you make it look like this clipart i found yet I really think this could go viral we are a non-profit organization. The website doesn\'t have the theme i was going for. Can you make the font bigger? we don\'t need a backup, it never goes down!. We exceed the clients\' expectations can you turn it around in photoshop so we can see more of the front, are you busy this weekend? I have a new project with a tight deadline, and that sandwich needs to be more playful, for start on it today and we will talk about what i want next time thanks for taking the time to make the website, but i already made it in wix. That\'s great!'
-            }
-        ],
-        image: 'sample2.jpg',
-        date: 'December 27, 2017',
-        url: 'to-become-shiny-and-passionate',
-        likes: 234
-    }]
-};
+/* DATABASE */
+mongoose.connect('mongodb://localhost/sew-development'); /* Separate dev and prod databases */
 
 /* MIDDLEWARES */
 app.set('view engine', 'ejs');
@@ -186,35 +15,71 @@ app.use('*/public', express.static('public'));
 /* REQUEST HANDLERS */
 // Main
 app.get('/', (req, res) => {
-    const popular = data.articles.sort((f,s) => f.likes < s.likes);
-    res.render('articles-list', { data: {name: 'POPULAR', articles: popular} }); /* Implement .slice(0, 5) and pagination */
+    Article.getArticles((err, articles) => {
+        if(!err){
+            const popular = articles.sort((f,s) => f.likes < s.likes);
+            res.render('articles-list', { data: {name: 'POPULAR', articles: popular} }); /* Implement .slice(0, 5) and pagination */
+        } else {
+            console.log('ERROR', err);
+        }
+    });
 });
 app.get('/self', (req, res) => {
-    const self = data.articles.filter(a => a.tag === 'SELF');
-    res.render('articles-list', { data: {name: 'SELF', articles: self} });
+    Article.getArticles((err, articles) => {
+        if(!err){
+            const self = articles.filter(a => a.tag === 'SELF');
+            res.render('articles-list', { data: {name: 'SELF', articles: self} });
+        } else {
+            console.log('ERROR', err);
+        }
+    });
 });
 app.get('/love', (req, res) => {
-    const love = data.articles.filter(a => a.tag === 'LOVE');
-    res.render('articles-list', { data: {name: 'LOVE', articles: love} });
+    Article.getArticles((err, articles) => {
+        if(!err){
+            const love = articles.filter(a => a.tag === 'LOVE');
+            res.render('articles-list', { data: {name: 'LOVE', articles: love} });
+        } else {
+            console.log('ERROR', err);
+        }
+    });
 });
 app.get('/career', (req, res) => {
-    const career = data.articles.filter(a => a.tag === 'CAREER');
-    res.render('articles-list', { data: {name: 'CAREER', articles: career} });
+    Article.getArticles((err, articles) => {
+        if(!err){
+            const career = articles.filter(a => a.tag === 'CAREER');
+            res.render('articles-list', { data: {name: 'CAREER', articles: career} });
+        } else {
+            console.log('ERROR', err);
+        }
+    });
 });
 app.get('/family', (req, res) => {
-    const family = data.articles.filter(a => a.tag === 'FAMILY');
-    res.render('articles-list', { data: {name: 'FAMILY', articles: family} });
+    Article.getArticles((err, articles) => {
+        if(!err){
+            const family = articles.filter(a => a.tag === 'FAMILY');
+            res.render('articles-list', { data: {name: 'FAMILY', articles: family} });
+        } else {
+            console.log('ERROR', err);
+        }
+    });
 });
 // Article
 app.get('/*/:article', (req, res) => {
-    const url = req.params.article;
-    let article;
-    data.articles.map(a => {
-        if(a.url === url){
-            article = a;
+    Article.getArticles((err, articles) => {
+        if(!err){
+            const url = req.params.article;
+            let article;
+            articles.map(a => {
+                if(a.url === url){
+                    article = a;
+                }
+            });
+            res.render('article', { article });            
+        } else {
+            console.log('ERROR');
         }
     });
-    res.render('article', { article });
 });
 // Other
 app.get('*', (req, res) => {
