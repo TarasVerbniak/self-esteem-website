@@ -163,8 +163,7 @@ main{
     margin: 15px 0;
 }
 .article-list-content{
-    /* background-color: #f1f1f1; */
-    background-color: #efebe9;
+    background-color: #d7ccc8;
     flex: 3;
     padding: 0 20px;
 }
