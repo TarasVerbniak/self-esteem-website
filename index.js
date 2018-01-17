@@ -4,7 +4,11 @@ const Article = require('./dbmodels/article');
 const app = express();
 
 /* DATABASE */
-mongoose.connect('mongodb://localhost/sew-development'); /* Separate dev and prod databases */
+// mongoose.connect('mongodb://localhost/sew-development'); /* Separate dev and prod databases */
+// PROD
+const prodDB = mongoose.createConnection('mongodb://localhost/sew-prod', { useMongoClient: true });
+// BACKUP
+const backupDB = mongoose.createConnection('mongodb://sew-robot:&2RP3!48WKYhyRg@ds057386.mlab.com:57386/sew-backup', { useMongoClient: true });
 
 /* MIDDLEWARES */
 app.set('view engine', 'ejs');
@@ -90,7 +94,13 @@ app.all('*', (req, res) => {
     res.status(403).send('Sorry, you can\'t do this...');
 });
 
-const PORT = process.env.PORT || 8000;
+console.log('process.env', process.env.NODE_ENV);
+
+let PORT = 8000;
+if(process.env.NODE_ENV === 'production'){
+    PORT = process.env.PORT || 80;
+}
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
