@@ -36,47 +36,19 @@ app.get('/', (req, res) => {
         }
     });
 });
-app.get('/self', (req, res) => {
+// Lists of articles for particular section
+app.get('/:section', (req, res) => {
+    const section = req.params.section.toUpperCase();
     DB.find((err, articles) => {
         if(!err){
-            const self = articles.filter(a => a.tag === 'SELF');
-            res.render('articles-list', { data: {name: 'SELF', articles: self} });
+            const data = articles.filter(a => a.tag === section);
+            res.render('articles-list', { data: {name: section, articles: data} });
         } else {
             console.log('ERROR', err);
         }
     });
 });
-app.get('/love', (req, res) => {
-    DB.find((err, articles) => {
-        if(!err){
-            const love = articles.filter(a => a.tag === 'LOVE');
-            res.render('articles-list', { data: {name: 'LOVE', articles: love} });
-        } else {
-            console.log('ERROR', err);
-        }
-    });
-});
-app.get('/career', (req, res) => {
-    DB.find((err, articles) => {
-        if(!err){
-            const career = articles.filter(a => a.tag === 'CAREER');
-            res.render('articles-list', { data: {name: 'CAREER', articles: career} });
-        } else {
-            console.log('ERROR', err);
-        }
-    });
-});
-app.get('/family', (req, res) => {
-    DB.find((err, articles) => {
-        if(!err){
-            const family = articles.filter(a => a.tag === 'FAMILY');
-            res.render('articles-list', { data: {name: 'FAMILY', articles: family} });
-        } else {
-            console.log('ERROR', err);
-        }
-    });
-});
-// Article
+// Single article
 app.get('/*/:article', (req, res) => {
     DB.find((err, articles) => {
         if(!err){
@@ -102,7 +74,7 @@ app.all('*', (req, res) => {
     res.status(403).send('Sorry, you can\'t do this...');
 });
 
-// Connection
+/* CONNECTION */
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
