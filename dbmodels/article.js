@@ -19,10 +19,3 @@ const articleSchema = new Schema({
 });
 
 module.exports.Schema = articleSchema;
-
-const Article = module.exports = mongoose.model('Article', articleSchema);
-
-// Get articles
-module.exports.getArticles = (callback, limit) => {
-    Article.find(callback).limit(limit);
-}
