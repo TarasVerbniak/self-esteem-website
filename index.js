@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Article = require('./dbmodels/article');
+const Keys = require('../config/keys');
 const app = express();
 let PORT;
 
@@ -9,8 +10,8 @@ let dbConnection;
 let backupDbConnection;
 if(process.env.NODE_ENV === 'production'){
     PORT = process.env.PORT || 80;
-    dbConnection = mongoose.createConnection('mongodb://localhost/sew-prod', { useMongoClient: true });
-    backupDbConnection = mongoose.createConnection('mongodb://sew-robot:&2RP3!48WKYhyRg@ds057386.mlab.com:57386/sew-backup', { useMongoClient: true });
+    dbConnection = mongoose.createConnection(Keys.PROD_DB_URI, { useMongoClient: true });
+    backupDbConnection = mongoose.createConnection(Keys.BACKUP_DB_URI, { useMongoClient: true });
 } else {
     PORT = 8000;
     dbConnection = mongoose.createConnection('mongodb://localhost/sew-development', { useMongoClient: true });
