@@ -28,7 +28,13 @@ main{
 .main-row{
     margin-bottom: 0 !important;
 }
-
+#toast-container {
+    top: auto !important;
+    right: auto !important;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
 /* NAVBAR */
 .nav-wrapper{
     background: #4e342e;

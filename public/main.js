@@ -55,6 +55,7 @@ $( document ).ready(function(){
             likeSVGLink[0].firstElementChild.style.fill='#d32f2f'
             likeSVGLink.removeClass('svg-like-animation');
             $(`#${articleID}-likes`).text( parseInt($(`#${articleID}-likes`).text()) + 1 );
+            Materialize.toast('Thank you for reading our article!', 3000);
             if ($(window).width() > 600){
                 likeSVGLink[0].setAttribute('data-tooltip', 'You liked it. Unlike?');
                 likeSVGLink.tooltip();
