@@ -35,6 +35,9 @@ main{
     left: 50%;
     transform: translateX(-50%);
 }
+#toast-container .toast{
+    justify-content: center;
+}
 /* NAVBAR */
 .nav-wrapper{
     background: #4e342e;
