@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const Article = require('./dbmodels/article');
 const Keys = require('../config/keys');
 const app = express();
@@ -22,6 +23,10 @@ const DB = dbConnection.model('Article', Article.Schema);
 app.set('view engine', 'ejs');
 app.locals.rmWhitespace = true;
 app.use('*/public', express.static('public'));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 
 
 /* REQUEST HANDLERS */
@@ -39,6 +44,7 @@ app.get('/', (req, res) => {
 // Lists of articles for particular section
 app.get('/:section', (req, res) => {
     const section = req.params.section.toUpperCase();
+
     DB.find((err, articles) => {
         if(!err){
             const data = articles.filter(a => a.tag === section);
@@ -62,6 +68,28 @@ app.get('/*/:article', (req, res) => {
             res.render('article', { article });            
         } else {
             console.log('ERROR');
+        }
+    });
+});
+// Article like
+app.post('/*/*/like', (req, res) => {
+    const id = req.body.id;
+    const isLike = req.body.like;
+    let newLikes;
+
+    DB.findById(id, (err, article) => {
+        if(!err){
+            if(isLike){
+                newLikes = article.likes + 1;
+            } else {
+                newLikes = article.likes - 1;
+            }
+
+            DB.findByIdAndUpdate(id, {likes: newLikes }, (err, article) => {
+                res.send({success: true, likes: newLikes});
+            });
+        } else {
+            console.log('ERROR in updating article\'s likes', err);
         }
     });
 });
