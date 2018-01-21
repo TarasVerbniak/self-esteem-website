@@ -50,6 +50,15 @@ $( document ).ready(function(){
     /* INCREASE LIKE */
     likeSVGLink.click(e => {
         if(sewLocalStorage.likes.indexOf(articleID) === -1){
+            sewLocalStorage.likes.push(articleID);
+            localStorage.setItem('sew-data', JSON.stringify(sewLocalStorage));
+            likeSVGLink[0].firstElementChild.style.fill='#d32f2f'
+            likeSVGLink.removeClass('svg-like-animation');
+            $(`#${articleID}-likes`).text( parseInt($(`#${articleID}-likes`).text()) + 1 );
+            if ($(window).width() > 600){
+                likeSVGLink[0].setAttribute('data-tooltip', 'You liked it. Unlike?');
+                likeSVGLink.tooltip();
+            }
             $.ajax({
                 type: 'POST',
                 url: `${window.location.pathname}/like`,
@@ -58,22 +67,18 @@ $( document ).ready(function(){
                     like: true
                 },
                 success: res => {
-                    if(res.success){
-                        sewLocalStorage.likes.push(articleID);
-                        localStorage.setItem('sew-data', JSON.stringify(sewLocalStorage));
-                        likeSVGLink[0].firstElementChild.style.fill='#d32f2f'
-                        likeSVGLink.removeClass('svg-like-animation');
-                        $(`#${articleID}-likes`).text(res.likes);
-                        if ($(window).width() > 600){
-                            likeSVGLink[0].setAttribute('data-tooltip', 'You liked it. Unlike?');
-                            likeSVGLink.tooltip();
-                        }
-                    } else {
-                        console.log('ERROR on the server. Can\'t like now');
-                    }
+                    if(!res.success) console.log('ERROR on the server. Can\'t like now');
                 }
             });
         } else {
+            sewLocalStorage.likes.splice( sewLocalStorage.likes.indexOf(articleID), 1);
+            localStorage.setItem('sew-data', JSON.stringify(sewLocalStorage));
+            likeSVGLink[0].firstElementChild.style.fill='#9e9e9e'
+            $(`#${articleID}-likes`).text( parseInt($(`#${articleID}-likes`).text()) - 1 );
+            if ($(window).width() > 600){
+                likeSVGLink[0].setAttribute('data-tooltip', 'Leave a like');
+                likeSVGLink.tooltip();
+            }
             $.ajax({
                 type: 'POST',
                 url: `${window.location.pathname}/like`,
@@ -81,18 +86,7 @@ $( document ).ready(function(){
                     id: articleID
                 },
                 success: res => {
-                    if(res.success){
-                        sewLocalStorage.likes.splice( sewLocalStorage.likes.indexOf(articleID), 1);
-                        localStorage.setItem('sew-data', JSON.stringify(sewLocalStorage));
-                        likeSVGLink[0].firstElementChild.style.fill='#9e9e9e'
-                        $(`#${articleID}-likes`).text(res.likes)
-                        if ($(window).width() > 600){
-                            likeSVGLink[0].setAttribute('data-tooltip', 'Leave a like');
-                            likeSVGLink.tooltip();
-                        }
-                    } else {
-                        console.log('ERROR on the server. Can\'t unlike now');
-                    }
+                    if(!res.success) console.log('ERROR on the server. Can\'t unlike now');
                 }
             });
         }

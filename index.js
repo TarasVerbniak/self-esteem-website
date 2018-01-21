@@ -86,9 +86,14 @@ app.post('/*/*/like', (req, res) => {
             }
 
             DB.findByIdAndUpdate(id, {likes: newLikes }, (err, article) => {
-                res.send({success: true, likes: newLikes});
+                if(!err){
+                    res.send({success: true, likes: newLikes});
+                } else {
+                    res.send({success: false});        
+                }
             });
         } else {
+            res.send({success: false});
             console.log('ERROR in updating article\'s likes', err);
         }
     });
