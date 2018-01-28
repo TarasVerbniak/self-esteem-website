@@ -47,7 +47,7 @@ $( document ).ready(function(){
     /* SET FOOTER DATE DYNAMICALLY */
     document.getElementById('footer-year').innerHTML = `&copy; ${new Date().getFullYear()} Copyright`;
 
-    /* INCREASE LIKE */
+    /* INCREASE/DECREASE LIKE */
     likeSVGLink.click(e => {
         if(sewLocalStorage.likes.indexOf(articleID) === -1){
             sewLocalStorage.likes.push(articleID);

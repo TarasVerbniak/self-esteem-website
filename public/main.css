@@ -66,7 +66,7 @@ main{
 }
 #mobile-nav{
     margin-left: -10px; /* To eliminate mobile navbar link available on desktop version on the left top website corner */
-    background: black;
+    background: #4e342e;
     color: white;
 }
 #mobile-nav li span{
